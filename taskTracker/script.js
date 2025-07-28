@@ -157,9 +157,29 @@ function downloadCSV() {
     csv += `${task.name},${hours}\n`;
   });
 
+  // Create date object in IST (UTC+5:30)
+  const now = new Date();
+  const utcOffset = now.getTimezoneOffset(); // in minutes
+  const istOffset = 330; // IST is UTC+5:30 → 330 minutes
+  const istTime = new Date(now.getTime() + (istOffset - utcOffset) * 60000);
+
+  let shiftDate = new Date(istTime);
+  const hours = istTime.getHours();
+  const minutes = istTime.getMinutes();
+
+  // If current IST time is between 00:00 and 05:29, use previous day
+  if (hours < 5 || (hours === 5 && minutes < 30)) {
+    shiftDate.setDate(shiftDate.getDate() - 1);
+  }
+
+  const yyyy = shiftDate.getFullYear();
+  const mm = String(shiftDate.getMonth() + 1).padStart(2, '0');
+  const dd = String(shiftDate.getDate()).padStart(2, '0');
+  const dateString = `${yyyy}-${mm}-${dd}`;
+
   const blob = new Blob([csv], { type: "text/csv" });
   const link = document.createElement("a");
   link.href = URL.createObjectURL(blob);
-  link.download = "task_time_log.csv";
+  link.download = `task_time_log_${dateString}.csv`;
   link.click();
 }
