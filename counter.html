@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+</head>
+
+<body>
+
+    <div class="div">
+        <h1 class="count">0</h1>
+
+        <div>
+            <button class="decBtn">-</button>
+            <button class="incBtn">+</button>
+        </div>
+        <br>
+        <div>
+            Increment/Decrement
+            <input type='number' class="chnageBy" value="0">
+        </div>
+
+        <br>
+        <div>
+            <button class="resetBtn">Reset</button>
+        </div>
+
+
+    </div>
+
+    <script defer>
+        const count = document.querySelector('.count')
+        const decBtn = document.querySelector('.decBtn')
+        const incBtn = document.querySelector('.incBtn')
+        const chnageBy = document.querySelector('.chnageBy')
+
+        console.log(count.innerText)
+
+        decBtn.addEventListener("click", () => {
+
+
+            const countValue = parseInt(count.innerText)
+            const chnageByValue = parseInt(chnageBy.value)
+            if (countValue > 0) {
+                count.innerHTML = countValue - 1
+            }
+            if(chnageByValue > 0) {
+                count.innerHTML = countValue - chnageByValue
+            }
+
+        });
+        incBtn.addEventListener("click", () => {
+            const countValue = parseInt(count.innerText)
+            const chnageByValue = parseInt(chnageBy.value)
+            if(chnageByValue > 0) {
+                count.innerHTML = countValue + chnageByValue
+            }
+            count.innerHTML = countValue + 1
+ 
+        });
+
+
+
+    </script>
+
+</body>
+
+</html>
