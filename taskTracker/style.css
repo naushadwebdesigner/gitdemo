@@ -1,0 +1,72 @@
+body {
+  font-family: sans-serif;
+  background: #121212;
+  color: #fff;
+  margin: 0;
+  padding: 30px;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  background: #1e1e1e;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+.task-input {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.task-input input {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  background: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background: #03dac5;
+  color: #000;
+  border-radius: 5px;
+}
+
+button:hover {
+  background: #00bfa5;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2a2a2a;
+  padding: 12px;
+  border: 1px solid #444;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  flex-wrap: wrap;
+}
+
+.task div {
+  margin: 5px 0;
+}
+
+.total-time {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.download-btn {
+  background: #bb86fc;
+  color: #000;
+}
